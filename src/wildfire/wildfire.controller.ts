@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { WildfireService } from './wildfire.service';
 import { CreateWildfireDto } from './dto/create-wildfire.dto';
 import { UpdateWildfireDto } from './dto/update-wildfire.dto';
@@ -23,7 +31,10 @@ export class WildfireController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateWildfireDto: UpdateWildfireDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateWildfireDto: UpdateWildfireDto,
+  ) {
     return this.wildfireService.update(+id, updateWildfireDto);
   }
 

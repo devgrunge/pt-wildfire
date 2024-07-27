@@ -1,4 +1,11 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateWildfireDto } from './create-wildfire.dto';
+import { IsString, IsOptional } from 'class-validator';
 
-export class UpdateWildfireDto extends PartialType(CreateWildfireDto) {}
+export class UpdateWildfireDto {
+  @IsString()
+  @IsOptional()
+  location?: string;
+
+  @IsString()
+  @IsOptional()
+  description?: string;
+}
